@@ -1,0 +1,26 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="سجل المواعيد">
+    <NavigationButton text="رجوع" android.systemIcon="ic_menu_back" />
+  </ActionBar>
+  
+  <GridLayout rows="auto, *">
+    <SegmentedBar selectedIndex="{{ filterIndex }}" class="m-4">
+      <SegmentedBar.items>
+        <SegmentedBarItem title="الكل" />
+        <SegmentedBarItem title="المكتملة" />
+        <SegmentedBarItem title="الملغاة" />
+      </SegmentedBar.items>
+    </SegmentedBar>
+    
+    <ListView row="1" items="{{ filteredAppointments }}" class="list-group">
+      <ListView.itemTemplate>
+        <StackLayout class="list-group-item p-4">
+          <Label text="{{ treatment }}" class="font-bold" />
+          <Label text="{{ date, 'dd/MM/yyyy' }}" />
+          <Label text="{{ time }}" />
+          <Label text="{{ status }}" class="mt-2" color="{{ status === 'completed' ? 'green' : 'red' }}" />
+        </StackLayout>
+      </ListView.itemTemplate>
+    </ListView>
+  </GridLayout>
+</Page>

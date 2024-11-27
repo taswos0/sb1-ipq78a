@@ -1,0 +1,23 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="الدفع">
+    <NavigationButton text="رجوع" android.systemIcon="ic_menu_back" />
+  </ActionBar>
+  
+  <StackLayout class="p-4">
+    <Label text="تفاصيل الدفع" class="text-xl font-bold mb-4" />
+    
+    <Label text="المبلغ المطلوب" class="text-lg mb-2" />
+    <Label text="{{ amount }} ريال" class="text-2xl text-green-600 mb-4" />
+    
+    <Label text="طريقة الدفع" class="text-lg mb-2" />
+    <ListView items="{{ paymentMethods }}" selectedIndex="{{ selectedMethodIndex }}" class="mb-4">
+      <ListView.itemTemplate>
+        <Label text="{{ name }}" class="p-2" />
+      </ListView.itemTemplate>
+    </ListView>
+    
+    <Button text="تأكيد الدفع" tap="{{ onProcessPayment }}" class="btn btn-primary p-4 rounded-lg" />
+    
+    <ActivityIndicator busy="{{ isProcessing }}" class="m-4" />
+  </StackLayout>
+</Page>

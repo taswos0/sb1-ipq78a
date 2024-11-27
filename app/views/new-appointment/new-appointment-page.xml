@@ -1,0 +1,37 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="حجز موعد جديد">
+    <NavigationButton text="رجوع" android.systemIcon="ic_menu_back" />
+  </ActionBar>
+  
+  <ScrollView>
+    <StackLayout class="p-4">
+      <Label text="اسم المريض" class="text-lg mb-2" />
+      <TextField text="{{ patientName }}" hint="ادخل اسم المريض" class="input p-2 mb-4 border rounded" />
+      
+      <Label text="نوع العلاج" class="text-lg mb-2" />
+      <ListView items="{{ treatments }}" selectedIndex="{{ selectedTreatmentIndex }}" class="mb-4 border rounded">
+        <ListView.itemTemplate>
+          <Label text="{{ name }}" class="p-2" />
+        </ListView.itemTemplate>
+      </ListView>
+      
+      <Label text="اختر الطبيب" class="text-lg mb-2" />
+      <ListView items="{{ doctors }}" selectedIndex="{{ selectedDoctorIndex }}" class="mb-4 border rounded">
+        <ListView.itemTemplate>
+          <Label text="{{ name }}" class="p-2" />
+        </ListView.itemTemplate>
+      </ListView>
+      
+      <Label text="التاريخ" class="text-lg mb-2" />
+      <DatePicker date="{{ selectedDate }}" class="mb-4" />
+      
+      <Label text="الوقت" class="text-lg mb-2" />
+      <TimePicker time="{{ selectedTime }}" class="mb-4" />
+      
+      <Label text="ملاحظات" class="text-lg mb-2" />
+      <TextView text="{{ notes }}" hint="اضف ملاحظات اضافية" class="input p-2 mb-4 border rounded" />
+      
+      <Button text="تأكيد الحجز" tap="{{ onConfirmAppointment }}" class="btn btn-primary p-4 rounded-lg" />
+    </StackLayout>
+  </ScrollView>
+</Page>

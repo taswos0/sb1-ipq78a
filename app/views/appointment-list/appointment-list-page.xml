@@ -1,0 +1,18 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="المواعيد" />
+  
+  <StackLayout class="p-4">
+    <Button text="حجز موعد جديد" tap="{{ onNewAppointment }}" class="bg-blue-500 text-white p-4 rounded-lg mb-4" />
+    
+    <ListView items="{{ appointments }}" class="list-group">
+      <ListView.itemTemplate>
+        <StackLayout class="list-group-item p-4 border-b border-gray-200">
+          <Label text="{{ patientName }}" class="font-bold text-lg" />
+          <Label text="{{ date, 'dd/MM/yyyy' }}" class="text-gray-600" />
+          <Label text="{{ time }}" class="text-gray-600" />
+          <Label text="{{ status }}" class="mt-2" />
+        </StackLayout>
+      </ListView.itemTemplate>
+    </ListView>
+  </StackLayout>
+</Page>

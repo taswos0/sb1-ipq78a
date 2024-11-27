@@ -1,0 +1,25 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="الملف الشخصي">
+    <NavigationButton text="رجوع" android.systemIcon="ic_menu_back" />
+  </ActionBar>
+  
+  <ScrollView>
+    <StackLayout class="p-4">
+      <Label text="المعلومات الشخصية" class="text-xl font-bold mb-4" />
+      
+      <Label text="الاسم" class="text-lg mb-2" />
+      <TextField text="{{ patient.name }}" class="input p-2 mb-4 border rounded" />
+      
+      <Label text="رقم الهاتف" class="text-lg mb-2" />
+      <TextField text="{{ patient.phone }}" keyboardType="phone" class="input p-2 mb-4 border rounded" />
+      
+      <Label text="البريد الإلكتروني" class="text-lg mb-2" />
+      <TextField text="{{ patient.email }}" keyboardType="email" class="input p-2 mb-4 border rounded" />
+      
+      <Label text="التاريخ الطبي" class="text-xl font-bold mb-4" />
+      <TextView text="{{ patient.medicalHistory }}" editable="false" class="p-2 mb-4 border rounded" />
+      
+      <Button text="حفظ التغييرات" tap="{{ onSaveProfile }}" class="btn btn-primary p-4 rounded-lg" />
+    </StackLayout>
+  </ScrollView>
+</Page>
